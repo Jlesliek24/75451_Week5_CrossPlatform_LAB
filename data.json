@@ -3,13 +3,13 @@
       "id": 1,
       "name": "John Doe",
       "email": "john@example.com",
-      "photo_url": "./assets/John.jpg"
+      "photo_url": "/assets/John.jpg"
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "email": "jane@example.com",
-      "photo_url": "./assets/Doe.jpg"
+      "photo_url": "/assets/Doe.jpg"
     }
   ]
   

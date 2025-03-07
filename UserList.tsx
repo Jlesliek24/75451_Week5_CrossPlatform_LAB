@@ -1,4 +1,3 @@
-// UserList.tsx
 import React from "react";
 import {
   ScrollView,
@@ -8,21 +7,33 @@ import {
   Text,
   StyleSheet
 } from "react-native";
-import userdata from "./data.json"; // sesuaikan path data.json
+import userData from "./data.json"; 
 
-const UserList = ({ navigation }) => {
+// Fungsi untuk mencocokkan path lokal ke require()
+function getLocalImage(path: string) {
+  switch (path) {
+    case "./assets/John.jpg":
+      return require("/assets/John.jpg"); // Sesuaikan path
+    case "./assets/Doe.jpg":
+      return require("/assets/Doe.jpg");  // Sesuaikan path
+    default:
+      // Jika tidak ditemukan, tampilkan placeholder
+      return require("/assets/John.jpg");
+    // Ganti placeholder sesuai kebutuhan Anda
+  }
+}
+
+const UserList = ({ navigation }: any) => {
   return (
     <ScrollView style={styles.container}>
-      {userdata.map((user) => (
+      {userData.map((user) => (
         <TouchableOpacity
           key={user.id}
           style={styles.userContainer}
-          onPress={() =>
-            navigation.navigate("Profile", { user: user })
-          }
+          onPress={() => navigation.navigate("Profile", { user })}
         >
           <Image
-            source={{ uri: user.photo_url }}
+            source={getLocalImage(user.photo_url)}
             style={styles.avatar}
           />
           <View>
@@ -40,7 +51,8 @@ export default UserList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    marginTop: 50, // opsional
   },
   userContainer: {
     flexDirection: "row",
@@ -49,20 +61,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 5,
     backgroundColor: "#f7f7f7",
-    borderRadius: 8
+    borderRadius: 8,
   },
   avatar: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    marginRight: 10
+    marginRight: 10,
   },
   name: {
     fontSize: 16,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   email: {
     fontSize: 14,
-    color: "#666"
-  }
+    color: "#666",
+  },
 });

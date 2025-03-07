@@ -1,8 +1,8 @@
-// Profile.tsx
 import React from "react";
 import { View, Text, Button, Image, StyleSheet } from "react-native";
+import userData from "./data.json"; 
 
-const Profile = ({ route, navigation }) => {
+const Profile = ({ route, navigation }: any) => {
   // Destruktur data user yang dikirim dari UserList
   const { user } = route.params;
 
