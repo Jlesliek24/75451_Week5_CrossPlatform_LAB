@@ -2,9 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// Import semua layar
-import HomeScreen from "./HomeScreen";
-import Email from "./Email";
+// Import screen lain
+import HomeScreen from "./HomeScreen"; // opsional, jika ada
 import UserList from "./UserList";
 import Profile from "./Profile";
 
@@ -13,9 +12,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Email" component={Email} />
+      <Stack.Navigator initialRouteName="UserList">
+        {/* Jika Anda memiliki HomeScreen, bisa diletakkan di sini */}
         <Stack.Screen name="UserList" component={UserList} />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
