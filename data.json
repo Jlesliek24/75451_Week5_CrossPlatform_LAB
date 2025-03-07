@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "photo_url": "https://example.com/john.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "photo_url": "https://example.com/jane.jpg"
+    }
+  ]
+  
